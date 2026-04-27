@@ -1,0 +1,42 @@
+// 스프링 부트의 의존성들을 관리해주는 플러그인
+plugins {
+    id 'org.springframework.boot' version '3.2.0' // RELEASE 삭제
+    id 'io.spring.dependency-management' version '1.1.4' //스프링부트의 의존성을 관리해주는 플러그인
+    id 'java'
+}
+
+group = "com.jojoldu.book"
+version = "1.0-SNAPSHOT"
+
+java {
+    // JavaVersion.VERSION_17 // Java 17로 업그레이드 (Spring Boot 3.x 최소 요구사항)
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// Jar 설정 추가
+jar {
+    enabled = false // 일반 jar 비 활성화
+    archiveClassifier = ''
+}
+
+// bootjar 설정 추가
+bootJar {
+    enabled = true
+    archiveClassifier = '' // classifier 제거
+}
+
+dependencies {
+    // 프로젝트 개발에 필요한 의존성을 선언 하는 곳
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    // 테스트
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
