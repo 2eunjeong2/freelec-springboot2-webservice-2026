@@ -4,7 +4,7 @@ plugins {
     id 'java'
 }
 
-group = 'com.jopjoldu.book'
+group = 'com.jojoldu.book'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -32,7 +32,7 @@ jar {
 
 // bootjar 설정 추가
 bootJar {
-    enabled = true
+    enabled = false
     archiveClassifier = '' // classifier 제거
 }
 
