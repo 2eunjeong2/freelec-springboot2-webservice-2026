@@ -99,4 +99,22 @@ public class PostsApiControllerTest {
 
     }
 
+    @Test
+    public void 작성자별_조회() {
+        // given
+        postsRepository.save(Posts.builder().title("t1").content("c1").author("kim").build());
+        postsRepository.save(Posts.builder().title("t2").content("c2").author("lee").build());
+        postsRepository.save(Posts.builder().title("t3").content("c3").author("kim").build());
+
+        String url = "http://localhost:" + port + "/api/v1/posts/author/kim";
+
+        // when
+        ResponseEntity<List> responseEntity =
+                restTemplate.getForEntity(url, List.class);
+
+        // then
+        assertThat(responseEntity.getBody()).hasSize(2);    // kim 작성자만 2개
+    }
+
+
 }
