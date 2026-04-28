@@ -5,5 +5,6 @@ import java.util.List;
 
 public interface PostsRepository extends JpaRepository<Posts, Long> {
     List<Posts> findByAuthor(String author);          // (1) 메서드명 규칙
+    List<Posts> findByTitleContaining(String keyword);
 }
 
