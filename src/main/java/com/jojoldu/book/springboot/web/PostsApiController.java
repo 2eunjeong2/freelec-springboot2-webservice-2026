@@ -40,5 +40,10 @@ public class PostsApiController {
         return postsService.findAllDesc();                     // 위에서 만든 메서드 호출
     }
 
+    @GetMapping("/api/v1/posts/author/{author}")
+    public List<PostsResponseDto> findByAuthor(@PathVariable String author) {
+        return postsService.findByAuthor(author);
+    }
+
 
 }
