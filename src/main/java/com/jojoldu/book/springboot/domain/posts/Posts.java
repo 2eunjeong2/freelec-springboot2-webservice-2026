@@ -1,5 +1,6 @@
 package com.jojoldu.book.springboot.domain.posts;
 
+import com.jojoldu.book.springboot.domain.BaseTimeEntity;
 import jakarta.persistence.*;                  // ⚠️ jakarta (javax 아님)
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)   // JPA 전용
 @Entity                                              // DB 테이블과 매핑
 
-public class Posts {
+public class Posts extends BaseTimeEntity {
     @Id                                              // PK
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
