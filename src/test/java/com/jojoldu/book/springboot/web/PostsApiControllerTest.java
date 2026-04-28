@@ -79,4 +79,24 @@ public class PostsApiControllerTest {
         assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
         assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
     }
+
+    @Test
+    public void Posts_전체조회() throws Exception {
+        // given - 데이터 3개 저장
+        postsRepository.save(Posts.builder().title("t1").content("c1").author("a1").build());
+        postsRepository.save(Posts.builder().title("t2").content("c2").author("a2").build());
+        postsRepository.save(Posts.builder().title("t3").content("c3").author("a3").build());
+
+        String url = "http://localhost:" + port + "/api/v1/posts";
+
+        // when
+        ResponseEntity<List> responseEntity =
+                restTemplate.getForEntity(url, List.class);
+
+        // then
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(responseEntity.getBody()).hasSize(3);
+
+    }
+
 }
