@@ -43,3 +43,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### OAuth Client Secret 노출 방지 ###
+application-oauth.properties
