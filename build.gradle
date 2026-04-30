@@ -48,6 +48,7 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-mustache')
     // Spring Security
     implementation('org.springframework.boot:spring-boot-starter-oauth2-client')
+
     // Lombok 설정
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
