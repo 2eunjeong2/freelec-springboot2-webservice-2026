@@ -24,16 +24,14 @@ test {
     useJUnitPlatform()
 }
 
-// Jar 설정 추가
+// 일반 jar 비활성화 (Spring Boot 실행 jar 만 산출)
 jar {
-    enabled = false // 일반 jar 비 활성화
-    archiveClassifier = ''
+    enabled = false
 }
 
-// bootjar 설정 추가
+// bootJar: 버전 빼고 고정 이름으로 산출 (deploy.sh pgrep 매칭 안정화)
 bootJar {
-    enabled = false
-    archiveClassifier = '' // classifier 제거
+    archiveFileName = "${project.name}.jar"
 }
 
 dependencies {
